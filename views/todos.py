@@ -52,6 +52,18 @@ def add():
         flash(e.error)
     return redirect(url_for('todos.show'))
 
+# search recommend
+@todos_view.route('/search', methods=['POST'])
+def search():
+    content = request.form['content']
+    query = Todo().query
+    try:
+        todos = query.contains(content).add_descending('createdAt').find()
+    except LeanCloudError as e:
+        todos = []
+        flash(e.error)
+    return render_template('todos.html', todos=todos, status=PLANNED)
+
 
 # 删除一个 Todo
 @todos_view.route('/<todo_id>', methods=['DELETE'])

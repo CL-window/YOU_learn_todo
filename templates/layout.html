@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% block title %}{% endblock %} - Flask Todo Demo</title>
+    <title>{% block title %}{% endblock %} - Fresh You</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/app.css') }}">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -25,12 +25,12 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-set">
           <ul class="nav navbar-nav">
             {% set active = active|default('todos') -%}
-            <li {% if active == 'todos' %}class="active"{% endif %}><a href="{{ url_for('todos.show') }}">Todo List</a></li>
+            <li {% if active == 'todos' %}class="active"{% endif %}><a href="{{ url_for('todos.show') }}">Recomend List</a></li>
             <li {% if active == 'help' %}class="active"{% endif %}><a href="{{ url_for('help') }}">说明</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if g.user %}
-              <li><a href="{{ url_for('users.logout') }}">登出</a></li>
+                <li><a href="{{ url_for('users.logout') }}">登出</a></li>
             {% else %}
               <li><a href="{{ url_for('users.login') }}">登录</a></li>
               <li><a href="{{ url_for('users.register') }}">注册</a></li>
