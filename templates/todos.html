@@ -13,7 +13,7 @@
       </span>
     </div>
   </form>#}
-    <form action="{{ url_for('todos.search', METHOD='post') }}">
+    <form action="{{ url_for('todos.search')}}" method="post">
     <div class="input-group">
       <input id="todo-content" class="form-control input-lg" type="text" name="content" placeholder="输入关键字让我们更了解你..." />
       <span class="input-group-btn">
