@@ -2,22 +2,28 @@
 {% set active = 'help' -%}
 {% block title %}说明文档{% endblock %}
 {% block content %}
-  <div class="page-header">
-    <h1>Fresh You <small>recommend you someting that you may interested in</small></h1>
-  </div>
-  <div class="row">
-    <div class="col-md-9">
-      <article>
-        <h2 id="sec1">致力于塑造一个全新的你，</h2>
-        <ol start='' >
-          <li>你宅吗?</li>
-          <li>你想认识一下自己的潜力吗</li>
-          <li>你是不是有很多未完成的心愿，是不是很多使用没有勇气做出改变，是不是对现在的自己有一丁点儿的不满意</li>
-            <li>...</li>
-        </ol>
-        <h3><a href="{{ url_for('users.login') }}">加入我们吧</a></h3>
-        <h1 style="color: #d43f3a">However, by now, it just a funny</h1>
-      </article>
+    <div class="page-header">
+        <h1>Fresh You
+            <small>recommend you someting that you may interested in</small>
+        </h1>
     </div>
-  </div>
+    <div class="row">
+        <div class="col-md-9">
+            <article>
+                <h2 id="sec1">致力于塑造一个全新的你，</h2>
+                <ol start=''>
+                    <li>你宅吗?</li>
+                    <li>你想认识一下自己的潜力吗</li>
+                    <li>你是不是有很多未完成的心愿，是不是很多使用没有勇气做出改变，是不是对现在的自己有一丁点儿的不满意</li>
+                    <li>...</li>
+                </ol>
+                {% if g.user %}
+                    <h3>加入我们吧</h3>
+                {% else %}
+                    <h3><a href="{{ url_for('users.login') }}">加入我们吧</a></h3>
+                {% endif %}
+                <h1 style="color: #d43f3a">However, by now, it just a funny</h1>
+            </article>
+        </div>
+    </div>
 {% endblock %}

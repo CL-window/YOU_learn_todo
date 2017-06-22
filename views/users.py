@@ -31,7 +31,7 @@ def register():
         except LeanCloudError as e:
             flash(e.error)
             return redirect(url_for('users.register'))
-        return redirect(url_for('todos.show'))
+        return redirect(url_for('recommends.show'))
 
 
 @users_view.route('/login', methods=['GET', 'POST'])
@@ -50,7 +50,7 @@ def login():
         except LeanCloudError as e:
             flash(e.error)
             return redirect(url_for('users.login'))
-        return redirect(url_for('todos.show'))
+        return redirect(url_for('recommends.show'))
 
 
 @users_view.route('/logout')
