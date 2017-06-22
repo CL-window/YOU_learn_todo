@@ -16,7 +16,7 @@ from flask import flash
 class Todo(Object):
     pass
 
-todos_view = Blueprint('todos', __name__)
+todos_view = Blueprint('recommends', __name__)
 
 TRASHED, PLANNED, COMPLETED = -1, 0, 1
 
@@ -26,14 +26,14 @@ TRASHED, PLANNED, COMPLETED = -1, 0, 1
 def show():
     status = int(request.args.get('status', PLANNED))
     if status == TRASHED:
-        flash('无法查看已删除的 Todo')
+        flash('无法查看已删除的 recommends')
         status = PLANNED
     try:
         todos = Query(Todo).add_descending('createdAt').equal_to('status', status).find()
     except LeanCloudError as e:
         todos = []
         flash(e.error)
-    return render_template('todos.html', todos=todos, status=status)
+    return render_template('recommends.html', todos=todos, status=status)
 
 
 # 新建一个 Todo
@@ -61,7 +61,7 @@ def search():
     except LeanCloudError as e:
         todos = []
         flash(e.error)
-    return render_template('todos.html', todos=todos, status=PLANNED)
+    return render_template('recommends.html', todos=todos, status=PLANNED)
 
 
 # 删除一个 Todo
@@ -74,7 +74,7 @@ def delete(todo_id):
         todo.save()
     except LeanCloudError as e:
         flash(e.error)
-    return redirect(url_for('todos.show', status=status))
+    return redirect(url_for('recommends.show', status=status))
 
 
 # 将一个 Todo 的状态设置为已完成
@@ -87,7 +87,7 @@ def done(todo_id):
         todo.save()
     except LeanCloudError as e:
         flash(e.error)
-    return redirect(url_for('todos.show', status=status))
+    return redirect(url_for('recommends.show', status=status))
 
 
 # 将一个 Todo 的状态设置为未完成
@@ -100,4 +100,4 @@ def undone(todo_id):
         todo.save()
     except LeanCloudError as e:
         flash(e.error)
-    return redirect(url_for('todos.show', status=status))
+    return redirect(url_for('recommends.show', status=status))

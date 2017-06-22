@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
-{% set active = 'todos' -%}
+{% set active = 'recommends' -%}
 {% block title %}推荐 列表{% endblock %}
 {% block content %}
   <div class="page-header">
     <h1>Fresh You</h1>
   </div>
-  {#<form action="/todos" method="post">
+  {#<form action="/recommends" method="post">
     <div class="input-group">
       <input id="todo-content" class="form-control input-lg" type="text" name="content" placeholder="输入关键字让我们更了解你..." />
       <span class="input-group-btn">
@@ -13,7 +13,7 @@
       </span>
     </div>
   </form>#}
-    <form action="{{ url_for('todos.search')}}" method="post">
+    <form action="{{ url_for('recommends.search')}}" method="post">
     <div class="input-group">
       <input id="todo-content" class="form-control input-lg" type="text" name="content" placeholder="输入关键字让我们更了解你..." />
       <span class="input-group-btn">
@@ -38,21 +38,21 @@
 {% endif %}
 {% endwith %}
 <div class="btn-group todo-category-switch">
-<a class="btn btn-default{% if status == 0 %} active{% endif %}" href="{{ url_for('todos.show') }}">全部推荐</a>
-<a class="btn btn-default{% if status == 1 %} active{% endif %}" href="{{ url_for('todos.show', status=1) }}">已接受推荐</a>
+<a class="btn btn-default{% if status == 0 %} active{% endif %}" href="{{ url_for('recommends.show') }}">全部推荐</a>
+<a class="btn btn-default{% if status == 1 %} active{% endif %}" href="{{ url_for('recommends.show', status=1) }}">已接受推荐</a>
 </div>
 {% if not todos %}
 {% if status == 0 %}
 <div class="list-empty">
   <p class="text-center large-emoji">🎉</p>
   <p class="text-center lead">All Done!</p>
-  <p class="text-center"><a class="text-muted" href="{{ url_for('todos.show', status=1) }}">查看已接受推荐</a> 或者 <a class="text-muted" href="#" onclick=document.getElementById('todo-content').focus()>通过关键字获取一个新的推荐</span></a></a></p>
+  <p class="text-center"><a class="text-muted" href="{{ url_for('recommends.show', status=1) }}">查看已接受推荐</a> 或者 <a class="text-muted" href="#" onclick=document.getElementById('todo-content').focus()>通过关键字获取一个新的推荐</span></a></a></p>
 </div>
 {% elif status == 1 %}
 <div class="list-empty">
   <p class="text-center large-emoji">🤔</p>
   <p class="text-center lead">Wow. Nothing's Done Here.</p>
-  <p class="text-center"><a class="text-muted" href="{{ url_for('todos.show', status=0) }}">去看看全部推荐</a></p>
+  <p class="text-center"><a class="text-muted" href="{{ url_for('recommends.show', status=0) }}">去看看全部推荐</a></p>
 </div>
 {% endif %}
 {% else %}
@@ -60,10 +60,10 @@
 <ul class="list-group">
   {% for todo in todos %}
     <li class="list-group-item">
-      <form class="pull-right" action="{{ url_for('todos.delete', todo_id=todo.id, METHOD='DELETE', status=0) }}" method="post" id=delete-{{todo.id}}>
+      <form class="pull-right" action="{{ url_for('recommends.delete', todo_id=todo.id, METHOD='DELETE', status=0) }}" method="post" id=delete-{{todo.id}}>
         <span class="glyphicon glyphicon-trash todo-delete" style="color: #5cb85c">不再推荐</span>
       </form>
-      <form action="{{ url_for('todos.done', todo_id=todo.id, status=0) }}" method="post" id="done-{{todo.id}}">
+      <form action="{{ url_for('recommends.done', todo_id=todo.id, status=0) }}" method="post" id="done-{{todo.id}}">
         <span class="glyphicon glyphicon-unchecked"></span> {{ todo.get('content') }}
       </form>
     </li>
@@ -73,10 +73,10 @@
 <ul class="list-group">
   {% for todo in todos %}
     <li class="list-group-item">
-      <form class="pull-right" action="{{ url_for('todos.delete', todo_id=todo.id, METHOD='DELETE', status=1) }}" method="post" id=delete-{{todo.id}}>
+      <form class="pull-right" action="{{ url_for('recommends.delete', todo_id=todo.id, METHOD='DELETE', status=1) }}" method="post" id=delete-{{todo.id}}>
         <span class="glyphicon glyphicon-trash todo-delete">不再推荐</span>
       </form>
-      <form action="{{ url_for('todos.undone', todo_id=todo.id, status=1) }}" method="post" id="undone-{{todo.id}}">
+      <form action="{{ url_for('recommends.undone', todo_id=todo.id, status=1) }}" method="post" id="undone-{{todo.id}}">
         <span class="glyphicon glyphicon-check text-muted"></span> <del class="text-muted">{{ todo.get('content') }}</del>
       </form>
     </li>

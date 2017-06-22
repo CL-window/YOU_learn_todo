@@ -55,7 +55,7 @@ app.wsgi_app = leancloud.HttpsRedirectMiddleware(app.wsgi_app)
 app.wsgi_app = leancloud.engine.CookieSessionMiddleware(app.wsgi_app, app.secret_key)
 
 # 动态路由
-app.register_blueprint(todos_view, url_prefix='/todos')
+app.register_blueprint(todos_view, url_prefix='/recommends')
 app.register_blueprint(users_view, url_prefix='/users')
 
 
@@ -66,7 +66,7 @@ def before_request():
 
 @app.route('/')
 def index():
-    return redirect(url_for('todos.show'))
+    return redirect(url_for('recommends.show'))
 
 
 @app.route('/help')

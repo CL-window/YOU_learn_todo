@@ -24,8 +24,8 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-set">
           <ul class="nav navbar-nav">
-            {% set active = active|default('todos') -%}
-            <li {% if active == 'todos' %}class="active"{% endif %}><a href="{{ url_for('todos.show') }}">Recomend List</a></li>
+            {% set active = active|default('recommends') -%}
+            <li {% if active == 'recommends' %}class="active"{% endif %}><a href="{{ url_for('recommends.show') }}">Recomend List</a></li>
             <li {% if active == 'help' %}class="active"{% endif %}><a href="{{ url_for('help') }}">说明</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
