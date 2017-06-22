@@ -58,7 +58,7 @@ def search():
     content = request.form['content']
     query = Todo().query
     try:
-        todos = query.contains(content).add_descending('createdAt').find()
+        todos = query.contains("content", content).add_descending('createdAt').find()
     except LeanCloudError as e:
         todos = []
         flash(e.error)
