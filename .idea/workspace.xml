@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3d06f40-2791-4f9f-91d7-5742f26fb1a8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/todos.py" afterPath="$PROJECT_DIR$/views/todos.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/todos.html" afterPath="$PROJECT_DIR$/templates/todos.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,11 +17,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="todos.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="todos.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/todos.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4">
-              <caret line="59" column="91" lean-forward="true" selection-start-line="59" selection-start-column="91" selection-end-line="59" selection-end-column="91" />
+            <state relative-caret-position="116">
+              <caret line="55" column="26" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
               <folding>
                 <element signature="e#938#1278#0" expanded="false" />
               </folding>
@@ -72,14 +72,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="todos.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="todos.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/todos.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="86" lean-forward="false" selection-start-line="17" selection-start-column="79" selection-end-line="17" selection-end-column="86" />
+            <state relative-caret-position="225">
+              <caret line="15" column="42" lean-forward="false" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
               <folding>
-                <element signature="e#1149#1156#0#HTML" expanded="true" />
-                <element signature="e#1544#1551#0#HTML" expanded="true" />
+                <element signature="e#1166#1173#0#HTML" expanded="true" />
+                <element signature="e#1561#1568#0#HTML" expanded="true" />
+                <element signature="e#2924#2946#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,10 +128,10 @@
         <option value="$PROJECT_DIR$/templates/users/register.html" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/views/users.py" />
-        <option value="$PROJECT_DIR$/templates/todos.html" />
         <option value="$PROJECT_DIR$/templates/help.html" />
         <option value="$PROJECT_DIR$/templates/layout.html" />
         <option value="$PROJECT_DIR$/views/todos.py" />
+        <option value="$PROJECT_DIR$/templates/todos.html" />
       </list>
     </option>
   </component>
@@ -718,17 +719,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/todos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="86" lean-forward="false" selection-start-line="17" selection-start-column="79" selection-end-line="17" selection-end-column="86" />
-          <folding>
-            <element signature="e#1149#1156#0#HTML" expanded="true" />
-            <element signature="e#1544#1551#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/help.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -758,10 +748,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/todos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="59" column="91" lean-forward="true" selection-start-line="59" selection-start-column="91" selection-end-line="59" selection-end-column="91" />
+        <state relative-caret-position="116">
+          <caret line="55" column="26" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
           <folding>
             <element signature="e#938#1278#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/todos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="42" lean-forward="false" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+          <folding>
+            <element signature="e#1166#1173#0#HTML" expanded="true" />
+            <element signature="e#1561#1568#0#HTML" expanded="true" />
+            <element signature="e#2924#2946#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
