@@ -53,9 +53,8 @@ def add():
     return redirect(url_for('todos.show'))
 
 # search recommend
-@todos_view.route('/search', methods=['POST'])
-def search():
-    content = request.form['content']
+@todos_view.route('/<content>/search', methods=['POST'])
+def search(content):
     try:
         todos = Query(Todo).add_descending('createdAt').contains("content", content).find()
     except LeanCloudError as e:
