@@ -16,6 +16,7 @@ import leancloud
 
 from views.todos import todos_view
 from views.users import users_view
+from views.jsons import json_view
 
 
 app = Flask(__name__)
@@ -57,6 +58,7 @@ app.wsgi_app = leancloud.engine.CookieSessionMiddleware(app.wsgi_app, app.secret
 # 动态路由
 app.register_blueprint(todos_view, url_prefix='/recommends')
 app.register_blueprint(users_view, url_prefix='/users')
+app.register_blueprint(json_view, url_prefix='/json')
 
 
 @app.before_request
@@ -72,6 +74,10 @@ def index():
 @app.route('/help')
 def help():
     return render_template('help.html')
+
+@app.route('/json')
+def show_json():
+    return  redirect(url_for('json.show_all'))
 
 
 @app.route('/robots.txt')

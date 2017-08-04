@@ -13,7 +13,7 @@ from app import app
 
 engine = Engine(app)
 
-
+# Hook 函数
 @engine.before_save('Todo')
 def before_todo_save(todo):
     content = todo.get('content')
@@ -29,7 +29,7 @@ def before_todo_save(todo):
         acl.set_write_access(author.id, True)
         todo.set_acl(acl)
 
-
+# 定时任务
 @engine.define
 def empty_trash():
     deleted_todos = Object.extend('Todo').query.equal_to('status', -1).less_than('updatedAt', datetime.today() - timedelta(30)).find()
